@@ -11,11 +11,23 @@ package com.curso.demo.models;
  */
 public class Usuario
 {
+    private Long id;
     private String nombre;
     private String apellido;
     private String email;
     private String telefono;
     private String password;
+
+    public Long getId()
+    {
+        return id;
+    }
+
+    public Usuario setId(Long id)
+    {
+        this.id = id;
+        return this;
+    }
 
     public String getNombre()
     {
