@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,6 +35,40 @@ public class UsuarioController
         usuario.setTelefono("+57-23434554");
         usuario.setTelefono("carlos");
         return usuario;
+    }
+    @RequestMapping(value = "usuarios")
+    public List<Usuario> getUsuarios(){
+
+        List<Usuario> userList = new ArrayList<>();
+
+        Usuario usuario = new Usuario();
+        usuario.setId(1L);
+        usuario.setApellido("Del Toro");
+        usuario.setEmail("Carldeltoro@gmail.com");
+        usuario.setPassword("134$%·");
+        usuario.setTelefono("+57-23434554");
+        usuario.setTelefono("carlos");
+
+        Usuario usuario2 = new Usuario();
+        usuario2.setId(2L);
+        usuario2.setApellido("Del Toro");
+        usuario2.setEmail("Carldeltoro@gmail.com");
+        usuario2.setPassword("134$%·");
+        usuario2.setTelefono("+57-23434554");
+        usuario2.setTelefono("carlos");
+
+        Usuario usuario3 = new Usuario();
+        usuario3.setId(3L);
+        usuario3.setApellido("Del Toro");
+        usuario3.setEmail("Carldeltoro@gmail.com");
+        usuario3.setPassword("134$%·");
+        usuario3.setTelefono("+57-23434554");
+        usuario3.setTelefono("carlos");
+
+        userList.add(usuario);
+        userList.add(usuario2);
+        userList.add(usuario3);
+        return userList;
     }
 
     @RequestMapping(value = "editar")
