@@ -5,7 +5,7 @@ $(document).ready(function() {
 });
 
 async function  cargarUsuarios(){
-  const request = await fetch('usuarios', {
+  const request = await fetch('api/usuarios', {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
@@ -14,15 +14,15 @@ async function  cargarUsuarios(){
    
   });
   const usuarios = await request.json();
-
+  //console.log(usuarios);
   let listHTML ='';
 
   for (let user of usuarios){
     let usuarioHTML = ' <tr>\n' +
         '                                            <td>12</td>\n' +
-        '                                            <td>'+usuario.nombre+'</td>\n' +
-        '                                            <td>'+usuario.email+'</<td>\n' +
-        '                                            <td>'+usuario.telefono+'</td>\n' +
+        '                                            <td>'+user.nombre+'</td>\n' +
+        '                                            <td>'+user.email+'</<td>\n' +
+        '                                            <td>'+user.telefono+'</td>\n' +
         '                                            <td>\n' +
         '                                                <a href="#" class="btn btn-danger btn-circle">\n' +
         '                                                    <i class="fas fa-trash"></i>\n' +
