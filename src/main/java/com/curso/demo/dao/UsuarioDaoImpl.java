@@ -28,7 +28,13 @@ public class UsuarioDaoImpl implements UsuarioDao
     public List<Usuario> getUsuarios()
     {
         String query = "FROM Usuario";
-        List<Usuario> resultado = entityManager.createQuery(query).getResultList();
-        return resultado;
+        return entityManager.createQuery(query).getResultList();
+    }
+
+    @Override
+    public void eliminar(Long id)
+    {
+        Usuario usuario = entityManager.find(Usuario.class,id);
+        entityManager.remove(id);
     }
 }
