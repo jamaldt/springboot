@@ -2,7 +2,10 @@ package com.curso.demo.dao;
 
 import com.curso.demo.models.Usuario;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 /**
@@ -25,7 +28,7 @@ public class UsuarioDaoImpl implements UsuarioDao
     public List<Usuario> getUsuarios()
     {
         String query = "FROM Usuario";
-        List<Usuario> resultado = entityManager.createQuery(query).getResultList;
+        List<Usuario> resultado = entityManager.createQuery(query).getResultList();
         return resultado;
     }
 }

@@ -1,5 +1,13 @@
 package com.curso.demo.models;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * System:                 CleanBnB
  * Name:                   Usuario
@@ -9,78 +17,22 @@ package com.curso.demo.models;
  * @version 1.0
  * @since 1/9/22
  */
+@Entity
+@Table(name = "usuario")
 public class Usuario
 {
+    @Id
+    @Getter @Setter @Column(name = "id")
     private Long id;
+    @Getter @Setter
     private String nombre;
+    @Getter @Setter
     private String apellido;
+    @Getter @Setter
     private String email;
+    @Getter @Setter
     private String telefono;
+    @Getter @Setter
     private String password;
 
-    public Long getId()
-    {
-        return id;
-    }
-
-    public Usuario setId(Long id)
-    {
-        this.id = id;
-        return this;
-    }
-
-    public String getNombre()
-    {
-        return nombre;
-    }
-
-    public Usuario setNombre(String nombre)
-    {
-        this.nombre = nombre;
-        return this;
-    }
-
-    public String getApellido()
-    {
-        return apellido;
-    }
-
-    public Usuario setApellido(String apellido)
-    {
-        this.apellido = apellido;
-        return this;
-    }
-
-    public String getEmail()
-    {
-        return email;
-    }
-
-    public Usuario setEmail(String email)
-    {
-        this.email = email;
-        return this;
-    }
-
-    public String getTelefono()
-    {
-        return telefono;
-    }
-
-    public Usuario setTelefono(String telefono)
-    {
-        this.telefono = telefono;
-        return this;
-    }
-
-    public String getPassword()
-    {
-        return password;
-    }
-
-    public Usuario setPassword(String password)
-    {
-        this.password = password;
-        return this;
-    }
 }
