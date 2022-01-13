@@ -21,12 +21,13 @@ async function  cargarUsuarios(){
         '<i class="fas fa-trash"></i>\n' +
         '</a>\n' ;
 
+    let telefono = user.telefono == null? '-' : user.telefono;
 
     let usuarioHTML = ' <tr>\n' +
         '                                            <td>12</td>\n' +
         '                                            <td>'+user.nombre+'</td>\n' +
         '                                            <td>'+user.email+'</<td>\n' +
-        '                                            <td>'+user.telefono+'</td>\n' +
+        '                                            <td>'+telefono+'</td>\n' +
         '                                            <td>\n' + botonEliminar+
         '                                            </td>\n' +
         '                                    </tbody>\n' +
