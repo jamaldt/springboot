@@ -35,6 +35,6 @@ public class UsuarioDaoImpl implements UsuarioDao
     public void eliminar(Long id)
     {
         Usuario usuario = entityManager.find(Usuario.class,id);
-        entityManager.remove(id);
+        entityManager.remove(usuario);
     }
 }
