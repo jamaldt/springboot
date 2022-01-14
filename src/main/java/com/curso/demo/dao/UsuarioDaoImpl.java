@@ -54,6 +54,9 @@ public class UsuarioDaoImpl implements UsuarioDao
             .setParameter("email",usuario.getEmail())
             .getResultList();
 
+        if (lista.isEmpty()){
+            return false;
+        }
         String passwordHashed = lista.get(0).getPassword();
 
         Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
