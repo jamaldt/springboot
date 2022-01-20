@@ -33,8 +33,6 @@ async function  cargarUsuarios(){
     listHTML+= usuarioHTML
 
   }
-
-
   document.querySelector('#usuarios tbody').outerHTML = listHTML;
 }
 

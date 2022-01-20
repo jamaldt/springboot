@@ -2,11 +2,13 @@ package com.curso.demo.controllers;
 
 import com.curso.demo.dao.UsuarioDao;
 import com.curso.demo.models.Usuario;
+import com.curso.demo.utils.JWTUtil;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,6 +30,8 @@ public class UsuarioController
 {
     @Autowired
     private UsuarioDao usuarioDao;
+    @Autowired
+    private JWTUtil _jwtUtil;
 
     @RequestMapping(value = "api/usuario/{id}", method = RequestMethod.GET)
     public Usuario getUsuario(@PathVariable Long id){
@@ -40,8 +44,15 @@ public class UsuarioController
         usuario.setTelefono("carlos");
         return usuario;
     }
-    @RequestMapping(value = "api/usuarios")
-    public List<Usuario> getUsuarios(){
+
+    @RequestMapping(value = "api/usuarios", method = RequestMethod.GET)
+    public List<Usuario> getUsuarios(@RequestHeader(value="Authorization") String token){
+
+        String usuarioId = _jwtUtil.getKey(token);
+
+    if(usuarioId == null){
+        return new ArrayList<>();
+    }
         return usuarioDao.getUsuarios();
     }
 
